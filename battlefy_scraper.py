@@ -40,7 +40,7 @@ def export_to_excel(battlefy_link: str):
                 teamwrite = csv.writer(csvfile)
                 teamwrite.writerow(headers)
                 for x,y in result.items():
-                    teamwrite.writerow([x,y])
+                    teamwrite.writerow([x,y[0],y[1]])
                     
     
         return "Teams written to teams.csv"
