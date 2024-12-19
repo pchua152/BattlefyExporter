@@ -14,7 +14,7 @@ def start():
             print(get_team(link,IGN))
         case _:
            print("Invalid option")
-           
+        
 def get_id(link):
     battlefy_link = link.split('/')
     battlefy_id = battlefy_link[5]
@@ -40,7 +40,8 @@ def export_to_excel(battlefy_link: str):
                 teamwrite = csv.writer(csvfile)
                 teamwrite.writerow(headers)
                 for x,y in result.items():
-                    teamwrite.writerow([x,y[0],y[1]])
+                    hyperlink = f'=HYPERLINK("{y[1]}")'
+                    teamwrite.writerow([x,y[0],hyperlink])
                     
     
         return "Teams written to teams.csv"
